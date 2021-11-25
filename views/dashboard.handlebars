@@ -1,5 +1,5 @@
         <div class="container flex-row">
-            <div class="dash col-8 flex-column justify-flex-start">
+            <div class="dash flex-column justify-flex-start">
                 <div>
                     <h1>My Dashboard</h1>
                     <h3>Hello <span>{{user.username}}</span></h3>
@@ -9,17 +9,16 @@
                 </div>
             </div>
     
-            <div class="my-surveys col-4">
+            <div class="aside">
                 <h3>My Surveys</h3>
                 <ol>
                     {{#if surveys.length}}
                     {{#each surveys}}
                     <li>
                         <h5>
-                            <a href="{{surveys.url}}">surveys.title</a>
+                            <a href="">surveys.title</a>
                         </h5>
                         <p>Created On: <span>surveys.created_at</span></p>
-                        <p>Status:<span>surveys.status</span></p>
                     </li>
                     {{/each}}
                     {{/if}}
