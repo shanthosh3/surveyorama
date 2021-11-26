@@ -1,15 +1,21 @@
         <div class="container flex-row">
-            <div class="dash flex-column justify-flex-start">
+            <section class="dash flex-column justify-flex-start">
                 <div>
                     <h1>My Dashboard</h1>
                     <h3>Hello <span>{{user.username}}</span></h3>
                 </div>
-                <div>
-                    <button class="btn">Create Survey</button>
+                <div class="create">
+                    <form>
+                        <div>
+                            <label for="survey-title">Survey Title:</label>
+                            <input type="text" id="survey-title" name="survey-title" />
+                        </div>
+                        <button class="btn">Create Survey</button>
+                    </form>
                 </div>
-            </div>
+            </section>
     
-            <div class="aside">
+            <section class="aside">
                 <h3>My Surveys</h3>
                 <ol>
                     {{#if surveys.length}}
@@ -24,5 +30,4 @@
                     {{/if}}
                 </ol>
             </div>
-        </div>
-    </main>
+        </section>

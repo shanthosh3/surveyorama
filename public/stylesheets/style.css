@@ -142,6 +142,12 @@
     margin-top: 5%;
     width: 60%;
     }
+    .create {
+    margin-top: 2%;
+    width: 75%;
+    padding: 2%;
+    border: solid 1px var(--tertiary);
+    }
     .main {
     margin-top: 1%;
     width: 60%;
@@ -209,4 +215,4 @@
     }
     .align-center {
     align-items: center;
-    }
+    }    
