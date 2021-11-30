@@ -1,4 +1,6 @@
-import express from 'express';
+const express = require('express');
+const { Model } = require('sequelize/dist');
+const { default: ModelManager } = require('sequelize/dist/lib/model-manager');
 
 const router  = express.Router();
 
@@ -17,8 +19,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    console.log('POST ROUTE RECEIVED');
 
+    res.send('POST ROUTE RECEIVED');
 }); 
 
 
-export default router;
+module.exports = router;

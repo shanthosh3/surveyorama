@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 // importing the routes 
-import usersRoutes from './controllers/api/userroutes';
+const usersRoutes = require('./controllers/api/userroutes');
 
 
 //DB
@@ -17,18 +17,20 @@ const sequelize = require('./config/database');
 //     .catch(err => console.log('Error: ' + err))
 
 const app = express();
+app.use('/users', usersRoutes);
 
-
-
-app.get('/', (req, res) => res.send('INDEX'));
 
 const PORT = process.env.PORT || 3000;
 
-sequelize.sync({ force: true}).then(()=> {
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.get('/', (req, res) => res.send('INDEX'));
+
+sequelize.sync({ force: false}).then(()=> {
     console.log("Synced and reset DB w SEQUElize")
 app.listen(PORT, ()=>{
    console.log(`App listening on port ${PORT}`)
 })
 })
 
-app.use('/users', usersRoutes);
