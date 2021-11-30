@@ -1,13 +1,11 @@
-const sequelize = require('sequelize');
-module.export = new Sequelize('survey_db', 'msql', '123456', {
-    host: 'localhost',
-    dialect: 'postgres',
-    operatorsAliases: false,
+const Sequelize = require('sequelize');
+require("dotenv").config();
 
-    pool: {
-        max:5,
-        min: 0,
-        acquire: 30000,
-        idle: 1000
-    },
+const sequelize = process.env.JAWSDB_URL
+    ? new Sequelize(process.env.JAWSDB_URL)
+    : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+    host: 'localhost',
+    dialect: 'mysql'
 }); // database folder name, username, password
+
+module.exports = sequelize;
