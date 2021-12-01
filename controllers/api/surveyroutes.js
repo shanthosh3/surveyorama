@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     Survey.create({
         title: req.body.title,
-        userID: req.session.userID
+        userID: req.session.user_id
     })
     .then(dbSurveyData => res.json(dbSurveyData))
     .catch(err=> {

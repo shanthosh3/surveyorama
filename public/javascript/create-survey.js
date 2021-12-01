@@ -4,7 +4,7 @@ async function newSurveyHandler(event) {
     const title = document.querySelector('#survey-title').value;
 
     const response = await fetch(`/api/survey`, {
-        method: 'POST',
+        method: 'post',
         body: JSON.stringify({
             title
         }),
@@ -14,8 +14,7 @@ async function newSurveyHandler(event) {
     });
 
     if (response.ok) {
-        const id = response.body.id;
-        document.location.replace(`/create/${id}`);
+        document.location.reload();
     } else {
         alert(response.statusText);
     }

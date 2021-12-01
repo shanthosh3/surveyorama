@@ -19,12 +19,12 @@
                 <h3>My Surveys</h3>
                 <ol>
                     {{#if surveys.length}}
-                    {{#each surveys}}
+                    {{#each surveys as |survey|}}
                     <li>
                         <h5>
-                            <a href="">surveys.title</a>
+                            <a href="/create/{{survey.id}}">{{survey.title}}</a>
                         </h5>
-                        <p>Created On: <span>surveys.created_at</span></p>
+                        <p>Created On: <span>{{survey.created_at}}</span></p>
                     </li>
                     {{/each}}
                     {{/if}}

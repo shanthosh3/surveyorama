@@ -36,12 +36,17 @@ router.get('/', (req, res) => {
             'id',
             'title',
             'created_at'
-        ]
+        ],
+        include: {
+            model: User,
+            attributes: ['id', 'username']
+        }
     })
     .then(dbSurveyData => {
         // serialize data
         const surveys = dbSurveyData.map(survey => survey.get({ plain: true }));
-        res.render('dashboard', { surveys, loggedIn: true });
+        const user = req.session.username;
+        res.render('dashboard', { user, surveys, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -63,6 +68,7 @@ router.get('/create/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+
 });
 
 
