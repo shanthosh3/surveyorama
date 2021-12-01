@@ -1,0 +1,49 @@
+       <div class="container flex-row">
+            <section class="main flex-column justify-flex-start">
+                <div>
+                    <h1>{{survey.title}}</h1>
+                </div>
+                <div class="question">
+                    <form>
+                        <div>
+                            <label for="question-title">Question:</label>
+                            <input type="text" id="question-title" name="question-title" />
+                        </div>
+                        <div>
+                            <label for="choice1">Choice 1:</label>
+                            <input type="text" id="choice1" name="choice1" />
+                        </div>
+                        <div>
+                            <label for="choice2">Choice 2:</label>
+                            <input type="text" id="choice2" name="choice2" />
+                        </div>
+                        <div>
+                            <label for="choice3">Choice 3:</label>
+                            <input type="text" id="choice3" name="choice3" />
+                        </div>
+                        <div>
+                            <label for="choice4">Choice 4:</label>
+                            <input type="text" id="choice4" name="choice4" />
+                        </div>
+                        <button class="btn">Add Question</button>
+                        <button class="btn">Done</button>
+                    </form>
+                </div>
+            </section>
+    
+            <section class="aside">
+                <h3>Questions</h3>
+                {{#if questions.length}}
+                <ol>
+                    {{#each questions}}
+                    <li>
+                        <h5>
+                            <a href="">{{questions.title}}</a>
+                        </h5>
+                        <p>Type: <span>Multiple Choice</span></p>
+                    </li>
+                    {{/each}}
+                </ol>
+                {{/if}}
+            </div>
+        </section>

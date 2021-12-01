@@ -2,21 +2,9 @@
   "name": "surveyorama",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^6.0.2",
-    "mysql2": "^2.3.3",
-    "nodemon": "^2.0.15",
-    "sequelize": "^6.12.0-alpha.1"
-  },
-  "devDependencies": {},
+  "main": "server.js",
   "scripts": {
-    "start": " node app.js",
-    "dev": "nodemon app.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/maks-pixel/surveyorama/issues"
   },
-  "homepage": "https://github.com/maks-pixel/surveyorama#readme"
+  "homepage": "https://github.com/maks-pixel/surveyorama#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.1",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0-alpha.1"
+  }
 }
