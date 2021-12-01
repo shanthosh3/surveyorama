@@ -5,6 +5,7 @@ const path = require('path');
 
 // importing the routes 
 const usersRoutes = require('./controllers/api/userroutes');
+const surveyRoutes = require("./controllers/api/surveyroutes")
 
 
 //DB
@@ -18,6 +19,7 @@ const sequelize = require('./config/database');
 
 const app = express();
 app.use('/users', usersRoutes);
+app.use("/api/survey", surveyRoutes)
 
 
 const PORT = process.env.PORT || 3000;

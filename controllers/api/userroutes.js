@@ -1,7 +1,5 @@
 const express = require('express');
-const { Model } = require('sequelize/dist');
-const { default: ModelManager } = require('sequelize/dist/lib/model-manager');
-
+const { User } = require('../../models');
 const router  = express.Router();
 
 const users = [
