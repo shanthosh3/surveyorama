@@ -1,4 +1,4 @@
-INSERT INTO User (`username`, `email`, `passcode`) 
+INSERT INTO User (`username`, `email`, `password`) 
 VALUES
   ('Admin', 'admin@test.com', '0192023a7bbd73250516f069df18b500'),
   ('Paul', 'psmith@test.com', '1254737c076cf867dc53d60a0364f38e'),
