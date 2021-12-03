@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Survey } = require('../models');
+// const withAuth = require('../utils/auth');
 
   
 //   router.get('/dashboard', (req, res) =>{
@@ -27,7 +28,7 @@ const { User, Survey } = require('../models');
 // });
 
 // get all surveys of the loggedin user
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Survey.findAll({
         where: {
             userID: req.session.user_id

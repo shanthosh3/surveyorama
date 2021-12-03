@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 const { Survey, Question } = require('../../models');
 
 // get all questions for a single survey
@@ -47,10 +47,11 @@ router.get('/:id', (req, res) => {
 });
 
 // create (post) a question
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Question.create({
         title: req.body.title,
-        choices: req.body.choices
+        choices: req.body.choices,
+        surveyID: req.body.surveyID
     })
     .then(dbQuestionData => res.json(dbQuestionData))
     .catch(err => {
@@ -60,7 +61,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // update question
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Question.update(req.body, {
         where: {
             id: req.params.id
@@ -80,7 +81,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 // delete question
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Question.destroy({
         where: {
             id: req.params.id

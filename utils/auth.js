@@ -1,3 +1,4 @@
+const passport= require('passport');
 const withAuth = (req, res, next)=>{
     if(!req.session.loggedIn){
         passport.authenticate('local', {failureRedirect: '/login'})
