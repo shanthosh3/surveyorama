@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const withAuth = require('../../utils/auth');
 const { Survey, Question } = require('../../models');
 
 // get all questions for a single survey
@@ -46,7 +47,7 @@ router.get('/:id', (req, res) => {
 });
 
 // create (post) a question
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Question.create({
         title: req.body.title,
         choices: req.body.choices
@@ -59,7 +60,7 @@ router.post('/', (req, res) => {
 });
 
 // update question
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Question.update(req.body, {
         where: {
             id: req.params.id
@@ -79,7 +80,7 @@ router.put('/:id', (req, res) => {
 });
 
 // delete question
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Question.destroy({
         where: {
             id: req.params.id

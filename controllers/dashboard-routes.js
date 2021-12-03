@@ -27,7 +27,7 @@ const { User, Survey } = require('../models');
 // });
 
 // get all surveys of the loggedin user
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Survey.findAll({
         where: {
             userID: req.session.user_id

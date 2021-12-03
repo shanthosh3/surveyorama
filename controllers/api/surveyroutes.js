@@ -48,7 +48,7 @@ router.get('/:id', (req, res) => {
 });
 
 // post API user's survey 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Survey.create({
         title: req.body.title,
         userID: req.session.user_id
@@ -61,7 +61,7 @@ router.post('/', (req, res) => {
 });
 
 // Update API user's survey (PUT)
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth,(req, res) => {
     Survey.update(req.body, {
         individualHooks: true,
         where:{
@@ -81,7 +81,7 @@ router.put('/:id', (req, res) => {
 });
 
 // Include the DELETE route ( DELETE API user survey ID)
-router.delete('/:id', (req, res) =>{
+router.delete('/:id', withAuth,(req, res) =>{
     Survey.destroy({
         where: { 
             id: req.params.id
