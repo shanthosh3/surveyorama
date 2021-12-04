@@ -1,7 +1,6 @@
 const router = require('express').Router();
 // const withAuth = require('../../utils/auth');
-const Survey = require('../../models/survey');
-const Question = require('../../models/question');
+const { User, Survey, Question } = require('../../models')
 // get all questions for a single survey
 router.get('/', (req, res) => {
     Question.findAll({

@@ -25,20 +25,20 @@
                             <label for="choice4">Choice 4:</label>
                             <input type="text" id="choice4" name="choice4" />
                         </div>
-                        <button class="btn">Add Question</button>
-                        <button class="btn">Done</button>
+                        <button class="btn" id="add">Add Question</button>
+                        <button class="btn" id="done">Done</button>
                     </form>
                 </div>
             </section>
     
             <section class="aside">
                 <h3>Questions</h3>
-                {{#if questions.length}}
+                {{#if survey.questions.length}}
                 <ol>
-                    {{#each questions}}
+                    {{#each survey.questions}}
                     <li>
                         <h5>
-                            <a href="">{{questions.title}}</a>
+                            <a href="">{{title}}</a>
                         </h5>
                         <p>Type: <span>Multiple Choice</span></p>
                     </li>
@@ -47,3 +47,5 @@
                 {{/if}}
             </div>
         </section>
+
+        <script src="/javascript/create-question.js"></script>

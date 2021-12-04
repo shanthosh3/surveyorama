@@ -1,11 +1,15 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Survey } = require('../models');
+const { User, Survey, Question } = require('../models');
 
 router.get('/:id', (req, res) => {
     Survey.findOne({
         id: req.params.id,
-        attributes: ['id', 'title']
+        attributes: ['id', 'title'],
+        include: {
+            model: Question,
+            attributes: ['id', 'title', 'choices']
+        }
     })
     .then(dbSurveyData => {
         //serialize data
