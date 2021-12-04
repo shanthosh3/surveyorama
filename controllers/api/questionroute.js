@@ -1,9 +1,9 @@
 const router = require('express').Router();
 // const withAuth = require('../../utils/auth');
-const { Survey, Question } = require('../../models');
-
+const Survey = require('../../models/survey');
+const Question = require('../../models/question');
 // get all questions for a single survey
-router.get('/:surveyID/', (req, res) => {
+router.get('/', (req, res) => {
     Question.findAll({
         where: {
             surveyID: req.params.surveyID

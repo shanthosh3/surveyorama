@@ -19,7 +19,13 @@ Question.init(
             allowNull: false,
         },
         choices: {
-            type: DataTypes.ARRAY,
+            type: DataTypes.STRING,
+            get: function(){
+                return JSON.parse(this.getDataValue('choices'));
+            },
+            set: function(val){
+                return this.setDataValue('choices', JSON.stringify(val));
+            },
             allowNull: false,
         },
         surveyID: {
