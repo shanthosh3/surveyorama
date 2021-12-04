@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Model } = require('sequelize/dist');
+const { Question } = require('../../models');
 const Survey = require('../../models/survey');
 const User = require("../../models/user");
 // const withAuth = require('../../utils/auth');
@@ -16,7 +17,13 @@ router.get('/', (req, res) => {
     //         attributes: ['username']
     //     }
     // })
-   Survey.findAll().then(dbSurveyData => res.json(dbSurveyData))
+   Survey.findAll({
+       attributes: ['id', 'title', 'created_at'],
+       include: {
+           model: Question,
+           attributes: ['title', 'choices', 'surveyID']
+       }
+   }).then(dbSurveyData => res.json(dbSurveyData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

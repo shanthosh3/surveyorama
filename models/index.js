@@ -1,6 +1,6 @@
-const User = require("./User");
-const Survey = require("./Survey");
-const Question = require("./Question");
+const User = require("./user");
+const Survey = require("./survey");
+const Question = require("./question");
 
 Survey.belongsTo(User,{
     foreignKey: "userID",

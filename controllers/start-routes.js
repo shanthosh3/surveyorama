@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
     .then(dbSurveyData => {
         //serialize data
         const survey = dbSurveyData.get({ plain: true });
-        res.render('create-survey', { survey, loggedIn: true })
+        res.render('start-survey', { survey, loggedIn: true })
     })
     .catch(err => {
         console.log(err);
