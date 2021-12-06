@@ -3,20 +3,10 @@ const { Model } = require('sequelize/dist');
 const { Question } = require('../../models');
 const Survey = require('../../models/survey');
 const User = require("../../models/user");
-// const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 // get API user's surveys
 router.get('/', (req, res) => {
-    // Survey.findAll({
-    //     where:{
-    //         userID: req.session.id,
-    // },
-    //     attributes: ["id", "title", "created_at"],
-    //     include:{
-    //         model: User,
-    //         attributes: ['username']
-    //     }
-    // })
    Survey.findAll({
        attributes: ['id', 'title', 'created_at'],
        include: {
@@ -56,7 +46,7 @@ router.get('/:id', (req, res) => {
 });
 
 // post API user's survey 
-router.post('/', (req, res) => {
+router.post('/', withAuth,(req, res) => {
     Survey.create({
         title: req.body.title,
         userID: req.session.user_id
@@ -69,7 +59,7 @@ router.post('/', (req, res) => {
 });
 
 // Update API user's survey (PUT)
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth,(req, res) => {
     Survey.update(req.body, {
         individualHooks: true,
         where:{
@@ -89,7 +79,7 @@ router.put('/:id', (req, res) => {
 });
 
 // Include the DELETE route ( DELETE API user survey ID)
-router.delete('/:id', (req, res) =>{
+router.delete('/:id', withAuth,(req, res) =>{
     Survey.destroy({
         where: { 
             id: req.params.id

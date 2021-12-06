@@ -1,3 +1,4 @@
+//beginning of starting a survey function
 async function startSurvey(event){
     event.preventDefault();
     event.stopImmediatePropagation();

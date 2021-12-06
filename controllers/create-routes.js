@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Survey, Question } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth,(req, res) => {
     Survey.findOne({
         where: {
             id: req.params.id,

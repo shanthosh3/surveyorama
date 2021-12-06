@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Survey, Question } = require('../models');
 
+//routes to start the survey
 router.get('/:id', (req, res) => {
     Survey.findOne({
         where: {

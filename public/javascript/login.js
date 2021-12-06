@@ -1,3 +1,4 @@
+//function to sign up a new user
 async function signupFormHandler(event) {
     event.preventDefault();
 
@@ -25,6 +26,7 @@ async function signupFormHandler(event) {
     }
 }
 
+//function to let you login as a user
 async function loginFormHandler (event) {
     event.preventDefault();
 

@@ -1,3 +1,4 @@
+//this function creates a new survey
 async function newSurveyHandler(event) {
     event.preventDefault();
 

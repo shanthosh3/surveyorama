@@ -4,6 +4,7 @@ const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
 
+//require http routes
 const dashboardRoutes = require('./dashboard-routes.js');
 const loginRoutes =  require('./login-routes');
 const createRoutes =  require('./create-routes');

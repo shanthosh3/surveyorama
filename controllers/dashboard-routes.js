@@ -1,34 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Survey } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
-  
-//   router.get('/dashboard', (req, res) =>{
-//       res.render("dashboard");
-//   });
 
-//   router.get('/login', (req, res) => {
-//     if (req.session.loggedIn) {
-//         res.redirect('/dashboard');
-//         return;
-//       }
-//     res.render('login');
-//   });
-
-//   router.post('/logout', (req, res) => {
-//     if (req.session.loggedIn) {
-//         req.session.destroy(() => {
-//           res.status(204).end();
-//         });
-//       }
-//       else {
-//         res.status(404).end();
-//       }
-// });
-
+//routes to render dashboard page
 // get all surveys of the loggedin user
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Survey.findAll({
         where: {
             userID: req.session.user_id
@@ -57,7 +35,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/create/:id', (req, res) => {
+router.get('/create/:id', withAuth,(req, res) => {
     Survey.findOne({
         id: req.params.id,
         attributes: ['id', 'title']

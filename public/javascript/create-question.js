@@ -1,3 +1,5 @@
+
+//function to adding questions to survey
 async function addQuestion(event){
     event.preventDefault();
     event.stopImmediatePropagation();
@@ -35,6 +37,7 @@ async function addQuestion(event){
     }
 };
 
+//function to finish creating the survey
 async function doneSurvey(event) {
     event.preventDefault();
     event.stopImmediatePropagation();
