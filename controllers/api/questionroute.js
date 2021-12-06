@@ -4,9 +4,6 @@ const { User, Survey, Question } = require('../../models')
 // get all questions for a single survey
 router.get('/', (req, res) => {
     Question.findAll({
-        where: {
-            surveyID: req.params.surveyID
-        },
         attributes: ['id', 'title', 'choices'],
         include: {
             model: Survey,
