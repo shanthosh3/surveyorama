@@ -42,34 +42,34 @@ async function doneSurvey(event) {
     const surveyID = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
-    const title = document.querySelector('input[name="question-title"]').value;
-    const choices = [];
-    const choiceOne = document.querySelector('input[name="choice1"]').value;
-    const choiceTwo = document.querySelector('input[name="choice2"]').value;
-    const choiceThree = document.querySelector('input[name="choice3"]').value;
-    const choiceFour = document.querySelector('input[name="choice4"]').value;
+    // const title = document.querySelector('input[name="question-title"]').value;
+    // const choices = [];
+    // const choiceOne = document.querySelector('input[name="choice1"]').value;
+    // const choiceTwo = document.querySelector('input[name="choice2"]').value;
+    // const choiceThree = document.querySelector('input[name="choice3"]').value;
+    // const choiceFour = document.querySelector('input[name="choice4"]').value;
 
-    choices.push(choiceOne, choiceTwo, choiceThree, choiceFour);
+    // choices.push(choiceOne, choiceTwo, choiceThree, choiceFour);
 
-    if (title && choices) {
-        const response = await fetch(`/api/question`, {
-            method: 'POST',
-            body: JSON.stringify({
-                title,
-                choices,
-                surveyID
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+    // if (title && choices) {
+    //     const response = await fetch(`/api/question`, {
+    //         method: 'POST',
+    //         body: JSON.stringify({
+    //             title,
+    //             choices,
+    //             surveyID
+    //         }),
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     });
 
-        if (response.ok) {
+        // if (response.ok) {
             document.location.replace(`/start/${surveyID}`);
-        } else {
-            alert(response.statusText);
-        }
-    }
+    //     } else {
+    //         alert(response.statusText);
+    //     }
+    // }
 }
 
 document.querySelector('#add').addEventListener('click', addQuestion);
