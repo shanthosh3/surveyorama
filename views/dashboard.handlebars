@@ -1,0 +1,35 @@
+        <div class="container flex-row">
+            <section class="dash flex-column justify-flex-start">
+                <div>
+                    <h1>My Dashboard</h1>
+                    <h3>Hello <span>{{user.username}}</span></h3>
+                </div>
+                <div class="create">
+                    <form>
+                        <div>
+                            <label for="survey-title">Survey Title:</label>
+                            <input type="text" id="survey-title" name="survey-title" />
+                        </div>
+                        <button type="submit" class="btn">Create Survey</button>
+                    </form>
+                </div>
+            </section>
+    
+            <section class="aside">
+                <h3>My Surveys</h3>
+                <ol>
+                    {{#if surveys.length}}
+                    {{#each surveys as |survey|}}
+                    <li>
+                        <h5>
+                            <a href="/create/{{survey.id}}">{{survey.title}}</a>
+                        </h5>
+                        <p>Created On: <span>{{format_date survey.created_at}}</span></p>
+                    </li>
+                    {{/each}}
+                    {{/if}}
+                </ol>
+            </div>
+        </section>
+
+        <script src="/javascript/create-survey.js"></script>

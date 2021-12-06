@@ -1,0 +1,30 @@
+<div class="container flex-row">
+    <section class="main flex-column">
+        <div>
+            <h1>{{survey.title}}</h1>
+        </div>
+        <div>
+            <h3>Share survey:</h3>
+            <p>http://localhost:3001/start/{{survey.id}}</p>
+        </div>
+        <div>
+            <button class="btn" id="startSurvey">Start Survey</button>
+        </div>
+    </section>
+
+    <section class="aside">
+        <h3>Questions</h3>
+        {{#if survey.questions.length}}
+        <ol>
+            {{#each survey.questions}}
+            <li>
+                <h5>
+                    <a href="">{{title}}</a>
+                </h5>
+                <p>Type: <span>Multiple Choice</span></p>
+            </li>
+            {{/each}}
+        </ol>
+        {{/if}}
+    </section>
+</div>
