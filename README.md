@@ -25,7 +25,7 @@
  N/A
 
  ## Questions
- here is the link to my Github: [github.com/maks-pixel](github.com/maks-pixel)
+ here is the link to my Github: [github.com/shanthosh3](github.com/shanthosh3)
  If you have any questions regarding the project or anything else you can contact me at:
  
-  Email: [makdagirmay4@gmail.com](makdagirmay4@gmail.com) 
+  Email: [y.shanthosh@gmail.com](y.shanthosh@gmail.com) 
